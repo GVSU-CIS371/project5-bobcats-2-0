@@ -19,7 +19,7 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, onMounted } from 'vue';
+import { computed, onMounted, watch } from 'vue';
 import { useProductStore } from '../stores/ProductStore.ts';
 import StoreItem from '../components/StoreItem.vue';
 
@@ -28,8 +28,15 @@ const store = useProductStore();
 // filter products by clothing
 onMounted(() => {
   store.init();  // Initialize store
-  store.filterByCategory("Clothing"); 
 });
+
+watch(
+  () => store.products,  // Watch for changes in products
+  (newProducts) => {
+    store.filterByCategory("Clothing");
+  },
+  { immediate: true }
+);
 
 // Access filtered clthing
 const clothingProducts = computed(() => store.filteredProducts);

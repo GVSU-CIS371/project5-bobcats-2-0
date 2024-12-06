@@ -33,6 +33,8 @@ const filteredProducts = computed(() => store.filteredProducts);
 onMounted(() => {
   store.init();  // Initializes products and filteredProducts with initProducts
   console.log(store.filteredProducts); // Check if filteredProducts has data after initialization
+  store.filteredProducts = store.products;
 });
+
 </script>
 

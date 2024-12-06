@@ -2,7 +2,7 @@
   <v-app>
     <v-app-bar class="bg-blue-darken-4">
       <v-toolbar-title>My Online Store</v-toolbar-title>
-      <v-btn class="mx-5" v-for="link in links" :key="link.text" :to="link.to">
+      <v-btn class="mx-3" v-for="link in links" :key="link.text" :to="link.to">
         <v-icon>{{ link.icon }}</v-icon>
         {{ link.text }}
       </v-btn>
@@ -30,5 +30,6 @@ const links = ref([
   { text: "Clothing", to: "/clothing", icon: "mdi-tshirt-crew" },
   { text: "Groceries", to: "/groceries", icon: "mdi-cart" },
   { text: "Best Seller", to: "/bestseller", icon: "mdi-cash-register" },
+  { text: "Add Item", to: "/additem", icon: "mdi-plus" }
 ]);
 </script>

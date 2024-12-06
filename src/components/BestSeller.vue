@@ -19,7 +19,7 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, onMounted } from 'vue';
+import { computed, onMounted, watch } from 'vue';
 import { useProductStore } from '../stores/ProductStore.ts';  
 import StoreItem from '../components/StoreItem.vue';  // displays products
 
@@ -28,8 +28,15 @@ const store = useProductStore();
 // initalize sotre filter by rating
 onMounted(() => {
   store.init();  // Initialize the products
-  store.filterByRating(4.5); //filters above 4.5
 });
+
+watch(
+  () => store.products,  // Watch for changes in products
+  (newProducts) => {
+    store.filterByRating(4.5);
+  },
+  { immediate: true }
+);
 
 // Access best seller products
 const bestSellerProducts = computed(() => store.filteredProducts);

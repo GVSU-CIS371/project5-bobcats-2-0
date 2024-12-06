@@ -4,6 +4,8 @@ import Groceries from "./components/Groceries.vue"
 import Electronics from "./components/Electronics.vue"
 import Clothing from "./components/Clothing.vue"
 import BestSeller from "./components/BestSeller.vue"
+import EditProduct from "./components/EditProduct.vue";
+import AddProduct from "./components/AddProduct.vue";
 
 const routes = [
   {
@@ -35,6 +37,18 @@ const routes = [
     name: "bestseller",
     props: true,
     component: BestSeller,
+  },
+  {
+    path: "/edit/:id",
+    name: "EditProduct",
+    props: true,
+    component: EditProduct,
+  },
+  {
+    path: "/additem",
+    name: "AddProduct",
+    props: true,
+    component: AddProduct,
   },
 ];
 
